@@ -18,6 +18,12 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libjpeg-dev libpango1.0-dev libcairo2-dev
+          npm install canvas
+    
       - name: generate snake.svg
         uses: Platane/snk/svg-only@v3
         with:
